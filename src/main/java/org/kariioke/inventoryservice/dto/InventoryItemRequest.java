@@ -1,26 +1,34 @@
 package org.kariioke.inventoryservice.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
+@Schema(description = "Request object for creating or updating an inventory item")
 public class InventoryItemRequest {
+    
     @NotBlank(message = "Name is required")
+    @Schema(description = "Name of the inventory item", example = "Laptop")
     private String name;
 
     @NotBlank(message = "Category is required")
+    @Schema(description = "Category of the item", example = "Electronics")
     private String category;
 
+    @Schema(description = "Detailed description of the item", example = "High-performance gaming laptop")
     private String description;
 
     @NotNull(message = "Price is required")
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
+    @Schema(description = "Price of the item", example = "999.99")
     private BigDecimal price;
 
     @NotNull(message = "Quantity is required")
     @Min(value = 0, message = "Quantity cannot be negative")
+    @Schema(description = "Quantity in stock", example = "50")
     private Integer quantity;
 
     public InventoryItemRequest() {}

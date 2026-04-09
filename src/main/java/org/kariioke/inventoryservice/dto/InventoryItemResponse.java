@@ -1,17 +1,37 @@
 package org.kariioke.inventoryservice.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+@Schema(description = "Response object for an inventory item")
 public class InventoryItemResponse {
+    
+    @Schema(description = "Unique identifier for the item", example = "1")
     private Long id;
+    
+    @Schema(description = "Name of the inventory item", example = "Laptop")
     private String name;
+    
+    @Schema(description = "Category of the item", example = "Electronics")
     private String category;
+    
+    @Schema(description = "Detailed description of the item", example = "High-performance gaming laptop")
     private String description;
+    
+    @Schema(description = "Price of the item", example = "999.99")
     private BigDecimal price;
+    
+    @Schema(description = "Current quantity in stock", example = "50")
     private Integer quantity;
+    
+    @Schema(description = "Whether the item is in stock", example = "true")
     private boolean inStock;
+    
+    @Schema(description = "Timestamp when the item was created")
     private LocalDateTime createdAt;
+    
+    @Schema(description = "Timestamp when the item was last updated")
     private LocalDateTime updatedAt;
 
     public InventoryItemResponse() {}
