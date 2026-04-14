@@ -1,6 +1,7 @@
 package org.kariioke.inventoryservice.controller;
 
 import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
 import org.kariioke.inventoryservice.dto.InventoryItemRequest;
 import org.kariioke.inventoryservice.dto.InventoryItemResponse;
 import org.kariioke.inventoryservice.dto.StockUpdateRequest;
@@ -13,13 +14,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/inventory")
+@RequiredArgsConstructor
 public class InventoryController {
 
     private final InventoryServiceImp inventoryService;
 
-    public InventoryController(InventoryServiceImp inventoryService) {
-        this.inventoryService = inventoryService;
-    }
+//    public InventoryController(InventoryServiceImp inventoryService) {
+//        this.inventoryService = inventoryService;
+//    }
 
     @PostMapping
     public ResponseEntity<InventoryItemResponse> addItem(@Valid @RequestBody InventoryItemRequest request) {

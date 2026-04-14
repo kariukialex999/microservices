@@ -1,5 +1,6 @@
 package org.kariioke.inventoryservice.service;
 
+import lombok.RequiredArgsConstructor;
 import org.kariioke.inventoryservice.dto.InventoryItemRequest;
 import org.kariioke.inventoryservice.dto.InventoryItemResponse;
 import org.kariioke.inventoryservice.dto.StockUpdateRequest;
@@ -13,13 +14,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class InventoryServiceImp implements InventoryService{
 
     private final InventoryRepository inventoryRepository;
-
-    public InventoryServiceImp(InventoryRepository inventoryRepository) {
-        this.inventoryRepository = inventoryRepository;
-    }
 
 
     @Override
