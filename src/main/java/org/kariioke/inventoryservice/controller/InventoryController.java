@@ -19,9 +19,6 @@ public class InventoryController {
 
     private final InventoryServiceImp inventoryService;
 
-//    public InventoryController(InventoryServiceImp inventoryService) {
-//        this.inventoryService = inventoryService;
-//    }
 
     @PostMapping
     public ResponseEntity<InventoryItemResponse> addItem(@Valid @RequestBody InventoryItemRequest request) {
@@ -47,5 +44,23 @@ public class InventoryController {
     public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
         inventoryService.deleteItem(id);
         return ResponseEntity.noContent().build();
+    }
+
+//    feignclients
+
+    @PutMapping("/{id}/reduce")
+    public InventoryItemResponse reduceStock(
+            @PathVariable Long id,
+            @RequestParam int quantity
+    ) {
+        return inventoryService.reduceStock(id, quantity);
+    }
+
+    @PutMapping("/{id}/restore")
+    public InventoryItemResponse restoreStock(
+            @PathVariable Long id,
+            @RequestParam int quantity
+    ) {
+        return inventoryService.restoreStock(id, quantity);
     }
 }
