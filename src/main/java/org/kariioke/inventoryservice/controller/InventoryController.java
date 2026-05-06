@@ -46,7 +46,7 @@ public class InventoryController {
         return ResponseEntity.noContent().build();
     }
 
-//    feignclients
+//    feignclients controllers
 
     @PutMapping("/{id}/reduce")
     public InventoryItemResponse reduceStock(
